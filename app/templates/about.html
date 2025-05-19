@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="about">
+    <h1>About {{ title }}</h1>
+    <p>간단하고 빠르게 시작할 수 있는 FastAPI 보일러플레이트입니다. <code>uv run</code> 방식을 통해 의존성을 빠르게 설치하고 관리하여 개발자 경험을 향상시킵니다.</p>
+    
+    <h2>기술 스택</h2>
+    <div class="tech-stack">
+        <h3>백엔드</h3>
+        <ul>
+            <li><strong>FastAPI</strong>: 고성능 웹 프레임워크 (비동기 지원)</li>
+            <li><strong>Uvicorn</strong>: ASGI 서버</li>
+            <li><strong>Pydantic</strong>: 데이터 유효성 검사 및 설정 관리</li>
+            <li><strong>SQLAlchemy</strong>: SQL 툴킷 및 ORM (옵션)</li>
+            <li><strong>Python-Jose</strong>: JWT 토큰 관리 (인증 시스템용)</li>
+            <li><strong>Passlib</strong>: 비밀번호 해싱 (보안용)</li>
+        </ul>
+        
+        <h3>프론트엔드</h3>
+        <ul>
+            <li><strong>Jinja2</strong>: 서버 사이드 템플릿 엔진</li>
+            <li><strong>HTML5</strong> + <strong>CSS3</strong>: 웹 페이지 구성</li>
+            <li><strong>기본 JavaScript</strong>: 필요한 클라이언트 측 상호작용 (외부 프레임워크 없음)</li>
+        </ul>
+        
+        <h3>개발 도구</h3>
+        <ul>
+            <li><strong>uv</strong>: 고속 Python 패키지 관리자</li>
+            <li><strong>Python 3.8+</strong>: 최신 Python 기능 지원</li>
+            <li><strong>hatchling</strong>: 패키지 빌드 시스템</li>
+        </ul>
+    </div>
+    
+    <h2>프로젝트 구조</h2>
+    <div class="code-block">
+        <pre>
+fastapi-boilerplate/
+├── app/                 # 애플리케이션 패키지
+│   ├── static/          # 정적 파일
+│   │   ├── css/         # CSS 모듈
+│   │   ├── js/          # JavaScript 파일
+│   │   └── img/         # 이미지 파일 (favicon 등)
+│   ├── templates/       # Jinja2 템플릿
+│   ├── core/            # 핵심 설정 모듈
+│   │   └── config.py    # 애플리케이션 설정
+│   ├── api/             # API 라우터 모듈
+│   ├── models/          # 데이터 모델
+│   ├── schemas/         # Pydantic 스키마
+│   └── main.py          # 애플리케이션 정의
+├── run.py               # 애플리케이션 실행 스크립트
+├── pyproject.toml       # 프로젝트 설정
+└── README.md            # 프로젝트 문서
+        </pre>
+    </div>
+    
+    <h2>빠른 시작</h2>
+    <p>저장소를 클론한 후 uv run으로 바로 실행할 수 있습니다:</p>
+    <div class="code-block">
+        <pre>
+git clone https://github.com/jeonck/fastapi-boilerplate.git
+cd fastapi-boilerplate
+uv run run.py
+        </pre>
+    </div>
+    <p>이 방식은 필요한 모든 패키지를 가장 빠르게 설치하고 개발 서버를 시작합니다. 별도의 가상 환경 설정이나 패키지 설치 과정이 필요 없습니다!</p>
+    
+    <h2>애플리케이션 접속</h2>
+    <ul>
+        <li>웹 인터페이스: <a href="http://localhost:8000">http://localhost:8000</a></li>
+        <li>API 문서: <a href="http://localhost:8000/docs">http://localhost:8000/docs</a></li>
+        <li>대화형 API 문서: <a href="http://localhost:8000/redoc">http://localhost:8000/redoc</a></li>
+    </ul>
+    
+    <h2>왜 uv를 사용하나요?</h2>
+    <p><code>uv</code>는 최신 Python 패키지 관리자로 다음과 같은 장점을 제공합니다:</p>
+    <ol>
+        <li><strong>빠른 속도</strong>: pip보다 최대 10-100배 빠른 패키지 설치 속도</li>
+        <li><strong>자동 의존성 관리</strong>: 필요한 패키지를 자동으로 설치</li>
+        <li><strong>개발자 경험 향상</strong>: 간편한 프로젝트 시작 방식 제공</li>
+        <li><strong>가상 환경 자동 관리</strong>: 별도의 가상 환경 설정 필요 없음</li>
+    </ol>
+    
+    <h2>API 예시</h2>
+    <p>기본 보일러플레이트는 다음과 같은 엔드포인트를 제공합니다:</p>
+    <ul>
+        <li><code>GET /</code>: 홈페이지 (HTML)</li>
+        <li><code>GET /about</code>: 소개 페이지 (HTML)</li>
+        <li><code>GET /api/hello</code>: 간단한 JSON 응답 API</li>
+    </ul>
+    
+    <h2>확장하기</h2>
+    <p>이 보일러플레이트는 필요에 따라 다음과 같이 확장할 수 있습니다:</p>
+    <ol>
+        <li><strong>데이터베이스 통합 (SQLAlchemy)</strong>
+            <ul>
+                <li>모델 정의 및 마이그레이션</li>
+                <li>CRUD 연산 구현</li>
+                <li>의존성 주입을 통한 DB 세션 관리</li>
+            </ul>
+        </li>
+        <li><strong>사용자 인증 시스템 (JWT)</strong>
+            <ul>
+                <li>로그인/회원가입 엔드포인트</li>
+                <li>토큰 기반 인증</li>
+                <li>권한 관리</li>
+            </ul>
+        </li>
+        <li><strong>더 많은 API 엔드포인트</strong>
+            <ul>
+                <li>RESTful CRUD 엔드포인트</li>
+                <li>비동기 API 구현</li>
+                <li>여러 라우터 모듈로 구성</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2>버전 호환성</h2>
+    <ul>
+        <li>Python 3.8 이상</li>
+        <li>FastAPI 0.100.0 이상</li>
+        <li>Pydantic 2.0.0 이상</li>
+    </ul>
+    
+    <footer class="about-footer">
+        <p>라이센스: MIT</p>
+    </footer>
+</section>
+{% endblock %}

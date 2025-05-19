@@ -1,0 +1,6 @@
+[tool]
+# uv 도구를 위한 프로젝트 설정
+
+[venv]
+path = ".venv"
+prompt = "fastapi-boilerplate"
