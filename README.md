@@ -222,4 +222,4 @@ fastapi-boilerplate/
 
 ## 라이센스
 
-MIT# fastapi-boilerplate
+MIT
